@@ -1,5 +1,5 @@
 # Gestion-Proyectos
-Programa de gestión de proyectos realizado con Spring MVC
+Programa de gestión de proyectos realizado con el Framework de Java Spring utilizando Spring MVC.
 
 La aplicación permite realizar diferentes tareas para gestionar proyectos en grupo.
 De esta forma podremos ver los proyectos de los diferentes usuarios, ver que compañeros tienen se encuentran trabajando en cada proyecto, unirnos a un proyecto
