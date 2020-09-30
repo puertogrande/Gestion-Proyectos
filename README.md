@@ -7,7 +7,7 @@ o crear un nuevo proyecto.
 
 ![Alt text](imagenes_aplicacion/inicio.PNG?raw=true "Inicio")
 
-![Alt text](imagenes_aplicacion/crear_proyectos.PNG?raw=true "Inicio")
+![Alt text](imagenes_aplicacion/crear_proyecto.PNG?raw=true "Crear Proyecto")
 
 ![Alt text](imagenes_aplicacion/proyectos.PNG?raw=true "Proyectos") 
 
