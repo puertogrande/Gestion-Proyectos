@@ -1,0 +1,18 @@
+body{
+	background-color:#ffe6ff;
+}
+
+form{
+	 font-weight: bold;
+}
+
+img{
+  margin-top:15%;
+  margin-left:10%;
+  width: 90%;
+  height:60%;
+  max-height:600px;
+  border: 1px solid red;
+  border-radius: 2%;
+}
+
