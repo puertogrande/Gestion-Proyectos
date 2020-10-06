@@ -11,6 +11,16 @@ INICIO
 CREAR PROYECTO
 ![NUEVO PROYECTO](imagenes_aplicacion/crear_proyecto.PNG?raw=true "Crear Proyecto")
 
+GESTIONAR MENSAJES
+![VER MENSAJEs](imagenes_aplicacion/gestion_mensajes.PNG?raw=true "Mensajes")
+
+Comunicate con el resto de usuarios a de forma sencilla
+
+NUEVO MENSAJE
+![NUEVO MENSAJE](imagenes_aplicacion/enviar_mensaje.PNG?raw=true "Nuevo Mensajes")
+
+
+
 TODOS LOS PROYECTOS
 ![PROYECTOS](imagenes_aplicacion/proyectos.PNG?raw=true "Proyectos") 
 
