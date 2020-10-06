@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Proyectos usuarios</title>
+		<title>Formulario Alumnos</title>
 		<meta charset="UTF-8">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		<link rel="stylesheet" href="../css/messageForm.css">
 	</head>
 	
 	<body>
@@ -31,46 +32,44 @@
 			        	<a class="nav-link text-light font-weight-bold ml-5" href="/mensajes">Mensajes</a>
 			      	</li>
 			    </ul>
-			    
 			  </div>
 		</nav>
-		
-		<h1 class="bg-light text-center">Datos del usuario seleccionado</h1>
-		<div class="row justify-content-center">
-            <p> Correo Electrónico: <span th:text="${usuario.email}"></span></p></br>
+		<section class="jumbotron text-center">
+	        <div class="container">
+	          <h1 class="jumbotron-heading">Manda un mensaje a tu compañero</h1>
+	          <p class="lead text-muted">Intenta que el mensaje sea breve y conciso recuerda que esto es una web profesional</p>
+	          
+	        </div>
+      	</section>
+      	
+		<div class="d-flex justify-content-center align-items-center container">
+			<form action="#" th:action="@{../mensajeForm}" th:object="${user_MessageDTO}" method="post" class="col-md-9 mt-5 ml-5">
+				<div class="row">
+				    <div class="col-sm mb-5">
+				    	<h1 class="mb-5">Nuevo Mensaje </h1>
+				    </div>
+				    <div class="col-sm">
+				    	<img class="img-fluid w-75" src="../img/mensaje.jpg" alt="Mensaje">
+				    </div>
+				</div>
+						
+	  			<div class="form-group">
+	    			<label for="asunto">Asunto del Mensaje</label>
+	    			<input type="text" th:field="*{asunto}" class="form-control" id="asunto"  placeholder="Escribe el asunto del mensaje">
+	  			</div>
+	  			<div class="form-group">
+	    			<label for="texto">Texto del mensaje</label>
+	    			<!--  <input type="text" th:field="*{texto}" class="form-control" id="texto" placeholder="Inserta el cuerpo del mensaje"> -->
+	    			<textarea th:field="*{texto}" class="form-control" id="exampleFormControlTextarea4" rows="4"  placeholder="Inserta el cuerpo del mensaje"></textarea>
+	  			</div>	
+	  			<input type="hidden" th:value="${email_emisor}" name="emailsourceUser" />
+	  			<input type="hidden" th:value="${email_receptor}" name="emailtargetUser" />
+	  						
+	  			<button type="submit" class="btn btn-primary">Enviar Mensaje</button>
+			</form>
 		</div>
-		<div class="row justify-content-center">
-            <p>  Nombre: <span th:text="${usuario.firstName}"> </span></p>
-		</div>
-		<div class="row justify-content-center">
-            <p>  Apellidos: <span th:text="${usuario.lastName}"> </span></p>
-		</div>
-		
-		<div class="row justify-content-center">
-			<table class="table mt-5 w-50 text-center">
-			    <thead class="thead-dark">
-			        <tr>
-			            <th scope="col"> Nombre </th>
-			            <th scope="col"> Descripción </th>
-			            <th scope="col"> Compañeros de proyecto </th>
-			        </tr>
-			    </thead>
-			    <tbody>
-					<tr th:if="${usuario.proyectos.empty}">
-			            <td colspan="2"> No hay proyectos disponibles en este momento </td>
-			        </tr>
-			        <tr th:each="proyecto : ${usuario.proyectos}">
-			            <td><span th:text="${proyecto.nombre}"> Nombre </span></td>
-			            <td><span th:text="${proyecto.descripcion}"> Descripción </span></td>
-			            <td> <a th:href="|@{/proyectos/compañeros/__${proyecto.id}__}|">Ver compañeros</a>
-			        </tr>
-			    </tbody>
-			</table>
-		</div> 
-
 		
 		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 	</body>
-</html>

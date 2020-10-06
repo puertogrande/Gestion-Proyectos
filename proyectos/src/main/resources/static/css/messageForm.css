@@ -1,0 +1,13 @@
+body{
+	background-color:#ffd6cc;
+}
+form{
+	 font-weight: bold;
+}
+img{
+	margin-top:-5%;
+	pading-bottom:5%;
+	border: 2px white groove;
+	border-radius:10px;
+}
+

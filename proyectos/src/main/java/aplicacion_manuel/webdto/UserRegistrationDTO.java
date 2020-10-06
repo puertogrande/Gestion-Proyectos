@@ -92,4 +92,6 @@ public class UserRegistrationDTO {
 	    public void setTerms(Boolean terms) {
 	        this.terms = terms;
 	    }
+	    
+	    
 }

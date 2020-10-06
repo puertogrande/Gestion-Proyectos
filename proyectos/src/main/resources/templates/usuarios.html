@@ -27,6 +27,12 @@
 			      	<li class="nav-item">
 			        	<a class="nav-link text-light font-weight-bold ml-5" href="/proyectoForm">Crear proyectos</a>
 			      	</li>
+			      	<li class="nav-item">
+			        	<a class="nav-link text-light font-weight-bold ml-5" href="/proyectoForm">Enviar Mensaje</a>
+			      	</li>
+			      	<li class="nav-item">
+			        	<a class="nav-link text-light font-weight-bold ml-5" href="/mensajes">Mensajes</a>
+			      	</li>
 			    </ul>
 			  </div>
 		</nav>
@@ -40,6 +46,7 @@
 			            <th scope="col"> Nombre </th>
 			             <th scope="col"> Apellidos </th>
 			            <th scope="col">Ver Proyectos </th>
+			             <th scope="col">Enviar Mensaje </th>
 			        </tr>
 			    </thead>
 			    <tbody>
@@ -51,6 +58,7 @@
 			            <td><span th:text="${usuario.firstName}">  </span></td>
 			              <td><span th:text="${usuario.lastName}">  </span></td>
 			            <td> <a th:href="|@{/proyectos/usuario/__${usuario.email}__}|">Proyectos</a>
+			            <td> <a th:href="|@{/mensajeForm/__${usuario.email}__}|">Enviar Mensaje</a>
 			        </tr>
 			    </tbody>
 			</table>

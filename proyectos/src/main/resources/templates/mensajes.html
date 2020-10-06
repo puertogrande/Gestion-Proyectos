@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Proyectos</title>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		<link rel="stylesheet" href="../css/mensajes.css">
+		
+	</head>
+	
+	<body class="bg-light">
+		<nav class="navbar navbar-expand-lg navbar-light bg-primary">
+			  <a class="navbar-brand text-light font-weight-bold ml-5 pr-5 ml-5" href="/index">Inicio</a>
+			  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			  	<span class="navbar-toggler-icon"></span>
+			  </button>
+			
+			  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+			  	<ul class="navbar-nav mr-auto">
+			    	<li class="nav-item active">
+			        	<a class="nav-link text-light font-weight-bold ml-5" href="/usuarios">Todos Usuarios <span class="sr-only">(current)</span></a>
+			      	</li>
+			      	<li class="nav-item">
+			        	<a class="nav-link text-light font-weight-bold ml-5" href="/proyectos">Todos Proyectos</a>
+			      	</li>
+			      	<li class="nav-item">
+			        	<a class="nav-link text-light font-weight-bold ml-5" href="/datos/personales">Datos Personales</a>
+			      	</li>
+			      	<li class="nav-item">
+			        	<a class="nav-link text-light font-weight-bold ml-5" href="/proyectoForm">Crear proyectos</a>
+			      	</li>
+			      	<li class="nav-item">
+			        	<a class="nav-link text-light font-weight-bold ml-5" href="/mensajes">Mensajes</a>
+			      	</li>
+			    </ul>
+			  </div>
+		</nav>
+		
+		<section class="jumbotron text-center">
+	        <div class="container">
+	          <h1 class="jumbotron-heading">Gestion de Mensajes</h1>
+	          <p class="lead text-muted mb-3">Rebisa tus nuevos mensajes y comunicate con tus compañeros de forma sencilla</p>
+	          	<button type="button" class="btn btn-info" id="boton_enviados"  onclick="ver_enviados()">Ver Mensajes Enviados</button>
+      			<button type="button" class="btn btn-info" id="boton_recibidos" onclick="ver_recibidos()">Ver Mensajes Recibidos</button>
+	        </div>
+      	</section>
+      
+		<div class="d-flex justify-content-center" id="enviados">
+			<div class="col-md-9 mt-5">
+				<h1 class="text-center mt-5 mb-5  bg-white">Mensajes Enviados</h1>
+				<div th:if="${mensajes_enviados.empty}" class="ml-1">
+		            <p colspan="2"> No has enviado ningún mensaje</p>
+		        </div>
+		        <div th:each="mensaje_enviado:${mensajes_enviados}" class="ml-1">
+		        	<h6>
+		        	 	<span th:text="${mensaje_enviado.asunto}"> Asunto no especificado </span>
+		        	 	<span th:text="${mensaje_enviado.targetUser.email}">  </span> 
+		        	 	<span> <a th:href="|@{/mensajeForm/__${mensaje_enviado.targetUser.email}__}|">Enviar Mensaje</a> </span>
+		        	 	<button type="button" class="btn btn-info btn-sm"  th:id="'boton_enviado' + ${mensaje_enviado.id}" onclick="mostrar_enviados(this.id)">Ver Texto</button>
+		        	</h6>
+		            <p class="texto_enviados"  th:id="'texto_enviados' + 'boton_enviado' + ${mensaje_enviado.id}"> <span th:text="${mensaje_enviado.texto}"> Texto no especificado </span></p>
+		        </div>
+			</div>
+		</div>
+		
+		<div class="d-flex justify-content-center" id="recibidos">
+			<div class="col-md-9 mt-5">
+				<h1 class="text-center mt-5 mb-5  bg-white">Mensajes Recibidos</h1>
+				<div th:if="${mensajes_recibidos.empty}">
+		            <td colspan="2"> No has enviado ningún mensaje</td>
+		        </div>
+		        <div th:each="mensaje_recibido : ${mensajes_recibidos}">
+		        	<h6> 
+		        		<span th:text="${mensaje_recibido.asunto}"> Asunto no especificado </span>  <span th:text="${mensaje_recibido.sourceUser.email}"> </span>
+		        	  	<span> <a th:href="|@{/mensajeForm/__${mensaje_recibido.sourceUser.email}__}|">Enviar Mensaje</a> </span>
+		        	  	<button type="button" class="btn btn-info btn-sm"  th:id="${mensaje_recibido.id}" onclick="mostrar_recibidos(this.id)">Ver Texto</button>
+		        	</h6>
+		            <p class="texto_recibidos"  th:id="'texto_recibidos' + ${mensaje_recibido.id}"> <span th:text="${mensaje_recibido.texto}"> Texto no especificado </span></p>
+		        </div>
+	        </div>
+		</div>
+		
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+		<script src="../js/mensajes.js"></script>
+	</body>
+</html>
