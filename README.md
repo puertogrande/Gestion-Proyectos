@@ -32,5 +32,9 @@ LOGIN
 INICIO DE SESIÓN
 ![INICIO SESION](imagenes_aplicacion/iniciar_sesion.PNG?raw=true "inicio sesion") 
 
+MÓVIL
+La aplicación es accesible para otros tamaños de pantaña como tablets o móviles gracias a Boostrap.
+![Movil](imagenes_aplicacion/movil.PNG?raw=true "movil") 
+
 
 La aplicación contiene diversas vistas de los alumnos y proyectos y más funcionalidades se irán añadiendo en el futuro.
